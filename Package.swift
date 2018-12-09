@@ -1,24 +1,23 @@
+// swift-tools-version:4.2
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
 import PackageDescription
 
-#if os(OSX)
 let package = Package(
-    name: "Pjango-Postman",
-    targets: [],
+    name: "PjangoPostman",
+    products: [
+        .library(
+            name: "PjangoPostman",
+            targets: ["PjangoPostman"]),
+        ],
     dependencies: [
-        .Package(url: "https://github.com/PerfectlySoft/Perfect-CURL.git", majorVersion: 3, minor: 0),
-        .Package(url: "https://github.com/enums/Pjango.git", majorVersion: 1, minor: 1),
-        .Package(url: "https://github.com/enums/SwiftyJSON.git", majorVersion: 4),
-        ]
+        .package(url:"https://github.com/enums/Pjango.git" , from: "2.0.0"),
+        .package(url:"https://github.com/PerfectlySoft/Perfect-CURL.git" , from: "3.1.0"),
+        .package(url:"https://github.com/enums/Pjango-SwiftyJSON.git" , from: "1.0.0"),
+        ],
+    targets: [
+        .target(
+            name: "PjangoPostman",
+            dependencies: ["Pjango", "PerfectCURL", "SwiftyJSON"])
+    ]
 )
-#else
-let package = Package(
-    name: "Pjango-Postman",
-    targets: [],
-    dependencies: [
-        .Package(url: "https://github.com/PerfectlySoft/Perfect-CURL.git", majorVersion: 2, minor: 0),
-        .Package(url: "https://github.com/PerfectlySoft/Perfect-Crypto.git", majorVersion: 1, minor: 0),
-        .Package(url: "https://github.com/enums/Pjango.git", majorVersion: 1, minor: 1),
-        .Package(url: "https://github.com/enums/SwiftyJSON.git", majorVersion: 4),
-        ]
-)
-#endif

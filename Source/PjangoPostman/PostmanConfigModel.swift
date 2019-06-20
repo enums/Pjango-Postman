@@ -29,6 +29,9 @@ public class PostmanConfigModel: PCModel {
     static public var eIv: String {
         return PostmanConfigModel.getValueForKey("eIv") ?? ""
     }
+    static public var proxy: String? {
+        return PostmanConfigModel.getValueForKey("proxy")
+    }
     
     override public func registerFields() -> [PCDataBaseField] {
         return [

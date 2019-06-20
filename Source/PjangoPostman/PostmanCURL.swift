@@ -54,6 +54,9 @@ public class PostmanCURL {
         curl.setOption(CURLOPT_POSTFIELDS, v: UnsafeMutableRawPointer(mutating: bodyEncrypted))
         curl.setOption(CURLOPT_POSTFIELDSIZE, int: bodyEncrypted.count)
         curl.setOption(CURLOPT_TIMEOUT_MS, int: 15000)
+        if let proxy = PostmanConfigModel.proxy {
+            curl.setOption(CURLOPT_PROXY, s: proxy)
+        }
         
         let (_, _, resBody) = curl.performFully()
         

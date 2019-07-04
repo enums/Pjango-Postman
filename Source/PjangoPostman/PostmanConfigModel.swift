@@ -40,10 +40,10 @@ public class PostmanConfigModel: PCModel {
     }
     
     static public func getValueForKey(_ key: String) -> String? {
-        let values = (self.queryObjects() as? [PostmanConfigModel])?.filter {
+        let values = self.queryObjects(self)?.filter {
             ($0.key.value as! String) == key
-            }.map {
-                $0.value.value as! String
+        }.map {
+            $0.value.value as! String
         }
         if values != nil, values!.count > 0 {
             return values![0]

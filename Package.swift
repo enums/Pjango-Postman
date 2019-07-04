@@ -11,7 +11,7 @@ let package = Package(
             targets: ["PjangoPostman"]),
         ],
     dependencies: [
-        .package(url:"https://github.com/enums/Pjango.git" , from: "2.1.0"),
+        .package(url:"https://github.com/enums/Pjango.git" , from: "2.2.1"),
         .package(url:"https://github.com/PerfectlySoft/Perfect-CURL.git" , from: "3.1.0"),
         .package(url:"https://github.com/enums/Pjango-SwiftyJSON.git" , from: "1.0.0"),
         ],
